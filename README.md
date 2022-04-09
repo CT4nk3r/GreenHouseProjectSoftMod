@@ -1,9 +1,9 @@
 # GreenHouseProjectSoftMod
 
-Feladatok:
-    <a href=#description>Elso feladat</a>
-    <a href=#functioning>Az elvárt működés</a>
-    <a href=#moduls>Modulok</a>
+Feladatok:<br>
+    1. <a href=#description>Elso feladat</a><br>
+    2. <a href=#functioning>Az elvárt működés</a><br>
+    3. <a href=#moduls>Modulok</a><br>
     
 1. <a name='description'>A projekt leírása</a> <br>
    A projekt során a cél egy olyan felhő alapú vezérlőrendszer fejlesztése, amely képes automatikusan
@@ -30,8 +30,8 @@ eszköz számára.
 akkor az eszközök meghibásodását kell feltételeznünk, és erről egy bejegyzés készül egy
 naplófájlba.
 
-1. <a name='moduls'>Modulok</a><br>
-    3.1. <a name='loader'>Loader modul</a> <br>
+3. <a name='moduls'>Modulok</a><br>
+    1.<a name='loader'>Loader modul</a> <br>
     A modul feladata az üvegházakra vonatkozó adatok betöltése a rendszer indulása során, amelyet
 jelenleg a JSON/XML fájl feldolgozásával tud megtenni. A betöltés után az ILoader interfész által
 definiált formátumban kell az adatokat átadni a Controller modul számára, amely megkezdi az
