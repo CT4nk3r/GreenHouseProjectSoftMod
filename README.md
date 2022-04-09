@@ -1,12 +1,22 @@
-# GreenHouseProjectSoftMod
+# Green House Project
+
+- [Green House Project](#green-house-project)
+	- [Feladatok:](#feladatok)
+		- [1. A projekt leírása](#1-a-projekt-leírása)
+		- [2. Az elvárt működés](#2-az-elvárt-működés)
+		- [3. Modulok](#3-modulok)
+			- [**3.1. Loader modul:**](#31-loader-modul)
+			- [**3.2. Monitor modul**](#32-monitor-modul)
+			- [**3.3. Driver modul**](#33-driver-modul)
+			- [**3.4. Controller modul**](#34-controller-modul)
+		- [4. Felhő szolgáltatások](#4-felhő-szolgáltatások)
+			- [**4.1 MonitorService**](#41-monitorservice)
+	- ["Szimulált Működés"](#szimulált-működés)
+
 
 ## Feladatok:
-  1. [A projekt leírása](#a-projekt-leírása)
-  2. [Az elvárt működés](#az-elvárt-működés)
-  3. [Modulok](#modulok)
     
 ### 1. A projekt leírása
-
 A projekt során a cél egy olyan felhő alapú vezérlőrendszer fejlesztése, amely képes automatikusan
 szabályozni az okos üvegházak hőmérsékletét és páratartalmát a fűtés és a locsoló berendezések
 vezérlésével. A rendszer képes egyszerre több üvegház kezelésére, amelyeknél a termesztett növény
@@ -15,7 +25,7 @@ rendszer a telepített szenzorok által mért adatokat a felhőn keresztül kér
 önállóan döntést hozni, hogy szükséges-e valamilyen beavatkozás.
 
 ### 2. Az elvárt működés
- - A távfelügyeleti rendszer által megvalósított működés:
+- A távfelügyeleti rendszer által megvalósított működés:
 - Az egyes üvegházakra vonatkozó információkat egy JSON/XML fájlból lehet betölteni a
 rendszer indulásakor.
 - A vezérlő az indulás után a betöltött üvegházak listája alapján dolgozik és mindegyiknek sorra
@@ -91,20 +101,46 @@ m3, így megkapjuk, hogy 224,4 liter vizet kell kilocsolni a megfelelő
 páratartalom eléréséhez. Így a kiküldendő parancs (kerekített
 értékkel): **son224l**
 
-        | First Header  | Second Header |
+        | Hőmérséklet  | Max g/m3 |
         | ------------- | ------------- |
-        | Content Cell  | Content Cell  |
-        | Content Cell  | Content Cell  |
+        | 20  | 17.3  |
+        | 21  | 18.5  |
+        | -  | -  |
+        | -  | -  |
+        | -  | -  |
+        | -  | -  |
+        | -  | -  |
+3. Hiba észlelése, ha az elvárt szinttől nagy mértékben, vagyis legalább 5 fokkal
+különbözik az aktuális hőmérséklet, illetve 20%-kal aktuális páratartalom, akkor hibát
+enged feltételezni, amelyet fájlba kell logolni.
 
+A vezérlő parancsok:
+o Kazán: bup{x}c  hőmérséklet megemelése x fokkal
+o Locsoló rendszer: son{x}l  x liter víz locsolásának megkezdése
+A vezérlő a működése során iteratív végrehajtást fogunk feltételezni, de a jelenlegi prototípus során
+elég egyszer végig ellenőrizni az egyes üvegházakat. 
 
+### 4. Felhő szolgáltatások
 
+A távfelügyeleti rendszer működéséhez két szolgáltatás használatára van szükség:
+#### **4.1 MonitorService**
+A szolgáltatás elérése: http://193.6.19.58:8181/greenhouse/{id}
 
+A szolgáltatás paraméterként át kell adni az üvegház azonosítóját (id)pl.: (KFI3EW45RD), amelyre
+válaszul a következő adatokat kapjuk:
 
-
-
+| Paraméter | Típus | Leírás |
+| --------- | ----- | ------ |
+| ghId | string | Az üvegház azonosítója |
+| token | string | Biztonsági token, amely mentése szükséges a további kommunikációhoz |
+| temperature_act | double | Az üvegház aktuális hőmérséklete Celsius fokban |
+| humidity_act | double | Az üvegház aktuális relatív páratartalma %-ban |
+| boiler_on | bool | A kazán parancsot hajt-e végre?
+| sprinkler_on | bool | A locsoló parancsot hajt-e végre?
 
 
 ## "Szimulált Működés"
 
 - A program elindítása után a program betölti az egyes üvegházakra vonatkozó információkat.
 - A betöltött üvegház azonosítók alapján a rendszer lekéri az aktuális állapotát az üvegházaknak
+- 
