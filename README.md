@@ -13,6 +13,7 @@
 			- [**4.1 MonitorService**](#41-monitorservice)
 	- ["Szimulált Működés"](#szimulált-működés)
 	- [Megkötések](#megkötések)
+	- [Felhasználói követelmény](#felhasználói-követelmény)
 
 
 ## Feladatok:
@@ -203,3 +204,14 @@ A szamított adatok elküldése API szolgáltatással:
   ``<DATE>/t<TIME>/t<ghId>/t<SENZOR_TYPE>/t<VALUE>/n``
 
 
+
+## Felhasználói követelmény
+
+* REQ_100: Nézzük meg, hogy a parancs végrehajtódott.
+* REQ_101: Ellenőrizzük le, hogy helyesek-e a kalkulációk.
+* REQ_102: Ellenőrizzük, hogy az eszköz aminek probálunk parancsot kiadni, az éppen dolgozik-e.
+* REQ_103: Ellenőrizzük, hogy a parancs helyes-e amit a kazán kap.
+* REQ_104: Ellenőrizzük, hogy a parancs helyes-e amit a locsoló kap.
+* REQ_105: Ellenőzizzük, hogy az üzenetben kapott token érvényes-e.
+* REQ_106: Ellenőrizzük, hogy létező kazánt küldünk az üzenetben.
+* REQ_107: Ellenőrizzük, hogy az üzenet feldolgozható-e.
