@@ -1,15 +1,15 @@
 # GreenHouseProjectSoftMod
 
 1. A projekt leírása
-A projekt során a cél egy olyan felhő alapú vezérlőrendszer fejlesztése, amely képes automatikusan
+<p>A projekt során a cél egy olyan felhő alapú vezérlőrendszer fejlesztése, amely képes automatikusan
 szabályozni az okos üvegházak hőmérsékletét és páratartalmát a fűtés és a locsoló berendezések
 vezérlésével. A rendszer képes egyszerre több üvegház kezelésére, amelyeknél a termesztett növény
 igényeinek függvényében előre definiálva van az elvárt hőmérséklet és minimális páratartalom. A
 rendszer a telepített szenzorok által mért adatokat a felhőn keresztül kéri le, amelyek alapján képes
-önállóan döntést hozni, hogy szükséges-e valamilyen beavatkozás. 
+önállóan döntést hozni, hogy szükséges-e valamilyen beavatkozás.</p>
 
 2. Az elvárt működés
-A távfelügyeleti rendszer által megvalósított működés:
+<p>A távfelügyeleti rendszer által megvalósított működés:
     Az egyes üvegházakra vonatkozó információkat egy JSON/XML fájlból lehet betölteni a
 rendszer indulásakor.
     A vezérlő az indulás után a betöltött üvegházak listája alapján dolgozik és mindegyiknek sorra
@@ -23,4 +23,4 @@ hőmérsékletváltozás után szükséges-e újabb locsolás a páratartalom me
 eszköz számára.
     Ha rendszer hibát észlel, vagyis túl nagy a hőmérséklet vagy páratartalom eltérése az elvárttól,
 akkor az eszközök meghibásodását kell feltételeznünk, és erről egy bejegyzés készül egy
-naplófájlba.
+naplófájlba.</p>
