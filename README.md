@@ -80,12 +80,12 @@ Példa: aktuális hőmérséklet 25, minimálisan megengedett 27,
 optimális 28  mivel 25 < 27, ezért szükséges a beavatkozás, vagyis
 emeljük a hőmérsékletet az optimális szintig, ami 28-25=3 Celsius
 fokot jelent, így a kiadandó parancs: **bup3c**
-    * Ha az előző pont alapján szükséges a hőmérséklet emelés, akkor a cél
+   * Ha az előző pont alapján szükséges a hőmérséklet emelés, akkor a cél
 hőmérséklete alapján meghatározzuk a várható páratartalmat, ha nem, akkor
 az eredetit vesszük figyelembe, amely, ha elmarad az elvárttól, akkor 1%-os
 párolgást feltételezve megadjuk a locsoló rendszer számára a szükséges
 kilocsolandó vízmennyiséget (l).
-        * Példa: Tudjuk az aktuális hőmérsékletet pl.: 25 Celsius, és a
+       * Példa: Tudjuk az aktuális hőmérsékletet pl.: 25 Celsius, és a
 páratartalmat pl.: 70%. A következő táblázat alapján meghatározható,
 hogy ez m3-enként hány g vizet jelent a levegőben, ami 25 celsiusnál
 maximálisan 23,3g, ami 70%-os páratartalom mellett 23,3*0,7 =
@@ -101,15 +101,16 @@ m3, így megkapjuk, hogy 224,4 liter vizet kell kilocsolni a megfelelő
 páratartalom eléréséhez. Így a kiküldendő parancs (kerekített
 értékkel): **son224l**
 
-        | Hőmérséklet  | Max g/m3 |
-        | ------------- | ------------- |
-        | 20  | 17.3  |
-        | 21  | 18.5  |
-        | -  | -  |
-        | -  | -  |
-        | -  | -  |
-        | -  | -  |
-        | -  | -  |
+|  Hőmérséklet  |  Max g/m3  |
+|:-------------:|:----------:|
+|      20       |    17.3    |
+|      21       |    18.5    |
+|       -       |     -      |
+|       -       |     -      |
+|       -       |     -      |
+|       -       |     -      |
+|       -       |     -      |
+
 3. Hiba észlelése, ha az elvárt szinttől nagy mértékben, vagyis legalább 5 fokkal
 különbözik az aktuális hőmérséklet, illetve 20%-kal aktuális páratartalom, akkor hibát
 enged feltételezni, amelyet fájlba kell logolni.
@@ -129,14 +130,14 @@ A szolgáltatás elérése: http://193.6.19.58:8181/greenhouse/{id}
 A szolgáltatás paraméterként át kell adni az üvegház azonosítóját (id)pl.: (KFI3EW45RD), amelyre
 válaszul a következő adatokat kapjuk:
 
-| Paraméter | Típus | Leírás |
-| --------- | ----- | ------ |
-| ghId | string | Az üvegház azonosítója |
-| token | string | Biztonsági token, amely mentése szükséges a további kommunikációhoz |
-| temperature_act | double | Az üvegház aktuális hőmérséklete Celsius fokban |
-| humidity_act | double | Az üvegház aktuális relatív páratartalma %-ban |
-| boiler_on | bool | A kazán parancsot hajt-e végre?
-| sprinkler_on | bool | A locsoló parancsot hajt-e végre?
+| Paraméter       | Típus  | Leírás                                                              |
+|-----------------|--------|---------------------------------------------------------------------|
+| ghId            | string | Az üvegház azonosítója                                              |
+| token           | string | Biztonsági token, amely mentése szükséges a további kommunikációhoz |
+| temperature_act | double | Az üvegház aktuális hőmérséklete Celsius fokban                     |
+| humidity_act    | double | Az üvegház aktuális relatív páratartalma %-ban                      |
+| boiler_on       | bool   | A kazán parancsot hajt-e végre?                                     |
+| sprinkler_on    | bool   | A locsoló parancsot hajt-e végre?                                   |
 
 
 ## "Szimulált Működés"
