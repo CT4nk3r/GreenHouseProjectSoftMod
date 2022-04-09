@@ -12,6 +12,7 @@
 		- [4. Felhő szolgáltatások](#4-felhő-szolgáltatások)
 			- [**4.1 MonitorService**](#41-monitorservice)
 	- ["Szimulált Működés"](#szimulált-működés)
+	- [Megkötések](#megkötések)
 
 
 ## Feladatok:
@@ -120,8 +121,8 @@ különbözik az aktuális hőmérséklet, illetve 20%-kal aktuális páratartal
 enged feltételezni, amelyet fájlba kell logolni.
 
 A vezérlő parancsok:
-o Kazán: bup{x}c  hőmérséklet megemelése x fokkal
-o Locsoló rendszer: son{x}l  x liter víz locsolásának megkezdése
+o Kazán: bup{x}c -> hőmérséklet megemelése x fokkal
+o Locsoló rendszer: son{x}l -> x liter víz locsolásának megkezdése
 A vezérlő a működése során iteratív végrehajtást fogunk feltételezni, de a jelenlegi prototípus során
 elég egyszer végig ellenőrizni az egyes üvegházakat. 
 
@@ -143,7 +144,6 @@ válaszul a következő adatokat kapjuk:
 | boiler_on       | bool   | A kazán parancsot hajt-e végre?                                     |
 | sprinkler_on    | bool   | A locsoló parancsot hajt-e végre?                                   |
 
-
 ## "Szimulált Működés"
 
 - A program elindítása után a program betölti az egyes üvegházakra vonatkozó információkat.
@@ -152,3 +152,6 @@ válaszul a következő adatokat kapjuk:
 - A döntés eredményét elküldi felhőn keresztül az eszközök számára.
 - Ha a rendszer hibát észlel akkor azt rögzíti egy naplófájlban.
 - A rendszer egyszeri lefutás után autómatikusan kilép és lezárja a kapcsolatokat.
+
+## Megkötések
+
