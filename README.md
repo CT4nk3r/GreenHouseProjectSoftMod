@@ -30,7 +30,7 @@ eszköz számára.
 akkor az eszközök meghibásodását kell feltételeznünk, és erről egy bejegyzés készül egy
 naplófájlba.
 
-1. <a name='moduls'>Modulok</a>
+1. <a name='moduls'>Modulok</a><br>
     3.1. <a name='loader'>Loader modul</a> 
     A modul feladata az üvegházakra vonatkozó adatok betöltése a rendszer indulása során, amelyet
 jelenleg a JSON/XML fájl feldolgozásával tud megtenni. A betöltés után az ILoader interfész által
