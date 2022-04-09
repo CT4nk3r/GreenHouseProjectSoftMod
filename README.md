@@ -2,16 +2,17 @@
 
 Feladatok:
     <a href=#elso>Elso feladat</a>
+    
 
-1. A projekt leírása
-<p class='elso'>A projekt során a cél egy olyan felhő alapú vezérlőrendszer fejlesztése, amely képes automatikusan
+1. <a name='elso'>A projekt leírása</a>
+   A projekt során a cél egy olyan felhő alapú vezérlőrendszer fejlesztése, amely képes automatikusan
 szabályozni az okos üvegházak hőmérsékletét és páratartalmát a fűtés és a locsoló berendezések
 vezérlésével. A rendszer képes egyszerre több üvegház kezelésére, amelyeknél a termesztett növény
 igényeinek függvényében előre definiálva van az elvárt hőmérséklet és minimális páratartalom. A
 rendszer a telepített szenzorok által mért adatokat a felhőn keresztül kéri le, amelyek alapján képes
 önállóan döntést hozni, hogy szükséges-e valamilyen beavatkozás.</p>
 
-2. Az elvárt működés
+1. Az elvárt működés
 <p>A távfelügyeleti rendszer által megvalósított működés:
     Az egyes üvegházakra vonatkozó információkat egy JSON/XML fájlból lehet betölteni a
 rendszer indulásakor.
