@@ -6,6 +6,7 @@
   3. [Modulok](#modulok)
     
 ### 1. A projekt leírása
+
 A projekt során a cél egy olyan felhő alapú vezérlőrendszer fejlesztése, amely képes automatikusan
 szabályozni az okos üvegházak hőmérsékletét és páratartalmát a fűtés és a locsoló berendezések
 vezérlésével. A rendszer képes egyszerre több üvegház kezelésére, amelyeknél a termesztett növény
