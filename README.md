@@ -100,6 +100,7 @@ köbmétereként. Ezt kell megszorozni az üvegház méretével, pl.: 1200
 m3, így megkapjuk, hogy 224,4 liter vizet kell kilocsolni a megfelelő
 páratartalom eléréséhez. Így a kiküldendő parancs (kerekített
 értékkel): **son224l**
+
 <p align="center">
 
 |  Hőmérséklet  |  Max g/m3  |
@@ -113,6 +114,7 @@ páratartalom eléréséhez. Így a kiküldendő parancs (kerekített
 |       -       |     -      |
 
 </p>
+
 3. Hiba észlelése, ha az elvárt szinttől nagy mértékben, vagyis legalább 5 fokkal
 különbözik az aktuális hőmérséklet, illetve 20%-kal aktuális páratartalom, akkor hibát
 enged feltételezni, amelyet fájlba kell logolni.
