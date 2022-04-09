@@ -5,7 +5,7 @@ Feladatok:
     <a href=#functioning>Az elvárt működés</a>
     <a href=#moduls>Modulok</a>
     
-1. <a name='description'>A projekt leírása</a>
+1. <a name='description'>A projekt leírása</a> <br>
    A projekt során a cél egy olyan felhő alapú vezérlőrendszer fejlesztése, amely képes automatikusan
 szabályozni az okos üvegházak hőmérsékletét és páratartalmát a fűtés és a locsoló berendezések
 vezérlésével. A rendszer képes egyszerre több üvegház kezelésére, amelyeknél a termesztett növény
@@ -13,7 +13,7 @@ igényeinek függvényében előre definiálva van az elvárt hőmérséklet és
 rendszer a telepített szenzorok által mért adatokat a felhőn keresztül kéri le, amelyek alapján képes
 önállóan döntést hozni, hogy szükséges-e valamilyen beavatkozás.</p>
 
-2. <a name='functioning'>Az elvárt működés</a>
+2. <a name='functioning'>Az elvárt működés</a> <br>
 A távfelügyeleti rendszer által megvalósított működés:
     Az egyes üvegházakra vonatkozó információkat egy JSON/XML fájlból lehet betölteni a
 rendszer indulásakor.
@@ -31,7 +31,7 @@ akkor az eszközök meghibásodását kell feltételeznünk, és erről egy beje
 naplófájlba.
 
 1. <a name='moduls'>Modulok</a><br>
-    3.1. <a name='loader'>Loader modul</a> 
+    3.1. <a name='loader'>Loader modul</a> <br>
     A modul feladata az üvegházakra vonatkozó adatok betöltése a rendszer indulása során, amelyet
 jelenleg a JSON/XML fájl feldolgozásával tud megtenni. A betöltés után az ILoader interfész által
 definiált formátumban kell az adatokat átadni a Controller modul számára, amely megkezdi az
