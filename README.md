@@ -15,7 +15,7 @@ rendszer a telepített szenzorok által mért adatokat a felhőn keresztül kér
 önállóan döntést hozni, hogy szükséges-e valamilyen beavatkozás.
 
 ### 2. Az elvárt működés
-> - A távfelügyeleti rendszer által megvalósított működés:
+ - A távfelügyeleti rendszer által megvalósított működés:
 - Az egyes üvegházakra vonatkozó információkat egy JSON/XML fájlból lehet betölteni a
 rendszer indulásakor.
 - A vezérlő az indulás után a betöltött üvegházak listája alapján dolgozik és mindegyiknek sorra
