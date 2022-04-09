@@ -1,19 +1,19 @@
 # GreenHouseProjectSoftMod
 
 ## Feladatok:
-    1. <a href=#description>Elso feladat</a><br>
-    2. <a href=#functioning>Az elvárt működés</a><br>
-    3. <a href=#moduls>Modulok</a><br>
+  1. [A projekt leírása](#a-projekt-leírása)
+  2. [Az elvárt működés](#az-elvárt-működés)
+  3. [Modulok](#modulok)
     
-## <a name='description'>A projekt leírása</a>
-   A projekt során a cél egy olyan felhő alapú vezérlőrendszer fejlesztése, amely képes automatikusan
+## A projekt leírása
+> A projekt során a cél egy olyan felhő alapú vezérlőrendszer fejlesztése, amely képes automatikusan
 szabályozni az okos üvegházak hőmérsékletét és páratartalmát a fűtés és a locsoló berendezések
 vezérlésével. A rendszer képes egyszerre több üvegház kezelésére, amelyeknél a termesztett növény
 igényeinek függvényében előre definiálva van az elvárt hőmérséklet és minimális páratartalom. A
 rendszer a telepített szenzorok által mért adatokat a felhőn keresztül kéri le, amelyek alapján képes
 önállóan döntést hozni, hogy szükséges-e valamilyen beavatkozás.
 
-## <a name='functioning'>Az elvárt működés</a>
+## Az elvárt működés
 - A távfelügyeleti rendszer által megvalósított működés:
 - Az egyes üvegházakra vonatkozó információkat egy JSON/XML fájlból lehet betölteni a
 rendszer indulásakor.
@@ -30,13 +30,13 @@ eszköz számára.
 akkor az eszközök meghibásodását kell feltételeznünk, és erről egy bejegyzés készül egy
 naplófájlba.
 
-## <a name='moduls'>Modulok</a>
-    1. <a name='loader'>Loader modul</a><br>
-    A modul feladata az üvegházakra vonatkozó adatok betöltése a rendszer indulása során, amelyet
+## Modulok
+### 1. Loader modul:
+> A modul feladata az üvegházakra vonatkozó adatok betöltése a rendszer indulása során, amelyet
 jelenleg a JSON/XML fájl feldolgozásával tud megtenni. A betöltés után az ILoader interfész által
 definiált formátumban kell az adatokat átadni a Controller modul számára, amely megkezdi az
 üvegházak monitorozását.
-
+### 2. 
 
 "Szimulált Működés"
 
