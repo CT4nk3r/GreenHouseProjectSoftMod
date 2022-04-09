@@ -1,7 +1,10 @@
 # GreenHouseProjectSoftMod
 
+Feladatok:
+    <a href=#elso>
+
 1. A projekt leírása
-<p>A projekt során a cél egy olyan felhő alapú vezérlőrendszer fejlesztése, amely képes automatikusan
+<p class='elso'>A projekt során a cél egy olyan felhő alapú vezérlőrendszer fejlesztése, amely képes automatikusan
 szabályozni az okos üvegházak hőmérsékletét és páratartalmát a fűtés és a locsoló berendezések
 vezérlésével. A rendszer képes egyszerre több üvegház kezelésére, amelyeknél a termesztett növény
 igényeinek függvényében előre definiálva van az elvárt hőmérséklet és minimális páratartalom. A
