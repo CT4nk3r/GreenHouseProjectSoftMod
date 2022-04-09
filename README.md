@@ -14,6 +14,7 @@
 	- ["Szimulált Működés"](#szimulált-működés)
 	- [Megkötések](#megkötések)
 	- [Felhasználói követelmény](#felhasználói-követelmény)
+	- [Use Case Diagram](#use-case-diagram)
 
 
 ## Feladatok:
@@ -215,3 +216,5 @@ A szamított adatok elküldése API szolgáltatással:
 * REQ_105: Ellenőzizzük, hogy az üzenetben kapott token érvényes-e.
 * REQ_106: Ellenőrizzük, hogy létező kazánt küldünk az üzenetben.
 * REQ_107: Ellenőrizzük, hogy az üzenet feldolgozható-e.
+
+## Use Case Diagram
