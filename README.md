@@ -115,7 +115,7 @@ páratartalom eléréséhez. Így a kiküldendő parancs (kerekített
 
 </div>
 
-1. Hiba észlelése, ha az elvárt szinttől nagy mértékben, vagyis legalább 5 fokkal
+3. Hiba észlelése, ha az elvárt szinttől nagy mértékben, vagyis legalább 5 fokkal
 különbözik az aktuális hőmérséklet, illetve 20%-kal aktuális páratartalom, akkor hibát
 enged feltételezni, amelyet fájlba kell logolni.
 
