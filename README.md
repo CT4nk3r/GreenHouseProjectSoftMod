@@ -154,4 +154,52 @@ válaszul a következő adatokat kapjuk:
 - A rendszer egyszeri lefutás után autómatikusan kilép és lezárja a kapcsolatokat.
 
 ## Megkötések
+Az üvegházakra vonatkozó alap információk egy [API-n](http://193.6.19.58:8181/greenhouse) keresztül érhetőek el az alábbi JSON formátumban:
+```json
+{
+	"greenhouseList": [
+		{
+			"ghId": "",
+			"description": "",
+			"temperature_min": "",
+			"temperature_opt": "",
+			"humidity_min": "",
+			"volume": ""
+		}
+	]
+}
+```
+Egy konkrét üvegház aktuális állapota az őt reprezentáló ``<ghId>`` (üvegház azonosító) segítségével kérhető le az [API](http://193.6.19.58:8181/greenhouse/{id}) segítségével. A visszakapott formátum a kovetkező JSON formátumban:
+```json
+{
+	"ghId":"",
+	"token":"",
+	"temperature_act": 0,
+	"humidity_act": 0,
+	"boiler_on": false,
+	"sprinkler_on": false 
+}
+```
+Az elvégzett számítások után két féle parancs továbbítható a felhőszolgáltatás részére.
+> _Az esetbe ha valamelyik eszköz állapota éppen aktív, akkor mind két parancsot üres string-ként kell továbbítani az API felé._
+- kazán: ``bup{x}c`` ahol ``x`` az emelni kívánt hőmérsékletet képviseli °C-ban.
+- locsoló: ``son{x}l`` ahol ``x`` a kilocsolandó víz mennyiségét jelzi literben.
+
+A szamított adatok elküldése API szolgáltatással:
+- request(POST)
+  - http://193.6.19.58:8181/greenhouse/{token}
+  - header
+    - ``content-type:text/plain;``
+  - body
+	```json
+	{
+		"ghId": "", 
+		"boilerCommand":"", 
+		"sprinklerCommand":""
+	}
+	```
+ Hiba észlelés esetén naplózás történik fájlba:
+  
+  ``<DATE>/t<TIME>/t<ghId>/t<SENZOR_TYPE>/t<VALUE>/n``
+
 
