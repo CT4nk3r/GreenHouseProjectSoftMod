@@ -144,4 +144,7 @@ válaszul a következő adatokat kapjuk:
 
 - A program elindítása után a program betölti az egyes üvegházakra vonatkozó információkat.
 - A betöltött üvegház azonosítók alapján a rendszer lekéri az aktuális állapotát az üvegházaknak
-- 
+- A rendszer a beérkezett adatok alapján eldönti, hogy szükséges e beavatkozás.
+- A döntés eredményét elküldi felhőn keresztül az eszközök számára.
+- Ha a rendszer hibát észlel akkor azt rögzíti egy naplófájlban.
+- A rendszer egyszeri lefutás után autómatikusan kilép és lezárja a kapcsolatokat.
