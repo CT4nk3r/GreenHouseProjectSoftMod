@@ -1,8 +1,8 @@
 public class GreenHouse {
     public String ghId;
     public String description;
-    public int tempMinimum;
-    public int tempOptimal;
+    public int temperature_min;
+    public int temperature_opt;
     public int humidity_min;
     public int volume;
 
@@ -14,16 +14,16 @@ public class GreenHouse {
         return description;
     }
 
-    public int getTempMinimum() {
-        return tempMinimum;
-    }
-
-    public int getTempOptimal() {
-        return tempOptimal;
-    }
-
     public int getHumidity_min() {
         return humidity_min;
+    }
+
+    public int getTemperature_min() {
+        return temperature_min;
+    }
+
+    public int getTemperature_opt() {
+        return temperature_opt;
     }
 
     public int getVolume() {
@@ -38,18 +38,17 @@ public class GreenHouse {
         this.description = description;
     }
 
-    public void setTempMinimum(int tempMinimum) {
-        this.tempMinimum = tempMinimum;
-    }
-
-    public void setTempOptimal(int tempOptimal) {
-        this.tempOptimal = tempOptimal;
-    }
-
     public void setHumidity_min(int humidity_min) {
         this.humidity_min = humidity_min;
     }
 
+    public void setTemperature_min(int temperature_min) {
+        this.temperature_min = temperature_min;
+    }
+
+    public void setTemperature_opt(int temperature_opt) {
+        this.temperature_opt = temperature_opt;
+    }
 
     public void setVolume(int volume) {
         this.volume = volume;
@@ -61,8 +60,8 @@ public class GreenHouse {
         String res = "";
         res += ("ghId: " + getGhId()+"\n");
         res += ("description: " + getDescription()+"\n");
-        res += ("temperature_min: " + getTempMinimum()+"\n");
-        res += ("temperature_opt: " + getTempOptimal()+"\n");
+        res += ("temperature_min: " + getTemperature_min()+"\n");
+        res += ("temperature_opt: " + getTemperature_opt()+"\n");
         res += ("humidity_min: " + getHumidity_min()+"\n");
         res += ("volume: " + getVolume()+"\n");
         return res;
