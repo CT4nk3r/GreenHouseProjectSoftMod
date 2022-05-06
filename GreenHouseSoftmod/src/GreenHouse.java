@@ -55,13 +55,16 @@ public class GreenHouse {
         this.volume = volume;
     }
 
-    public void print()
+    @Override
+    public String toString()
     {
-        System.out.println("ghId: " + getGhId());
-        System.out.println("description: " + getDescription());
-        System.out.println("temperature_min: " + getTempMinimum());
-        System.out.println("temperature_opt: " + getTempOptimal());
-        System.out.println("humidity_min: " + getHumidity_min());
-        System.out.println("volume: " + getVolume());
+        String res = "";
+        res += ("ghId: " + getGhId()+"\n");
+        res += ("description: " + getDescription()+"\n");
+        res += ("temperature_min: " + getTempMinimum()+"\n");
+        res += ("temperature_opt: " + getTempOptimal()+"\n");
+        res += ("humidity_min: " + getHumidity_min()+"\n");
+        res += ("volume: " + getVolume()+"\n");
+        return res;
     }
 }
