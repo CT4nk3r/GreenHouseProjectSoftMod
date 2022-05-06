@@ -5,7 +5,7 @@ import java.util.List;
 public class Main {
     public static void main(String[] args){
         Loader loader = new Loader("greenhouse.json");
-        List<GreenHouse> greenHousesList = loader.loadGreenHouse().getGreenHouseList();
+        List<GreenHouse> greenHousesList = loader.loadGreenHouses().getGreenHouseList();
         Monitor monitor = new Monitor();
 
     }

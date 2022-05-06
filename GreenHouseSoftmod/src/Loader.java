@@ -19,7 +19,7 @@ public class Loader implements ILoader{
     }
 
     @Override
-    public GreenHouseList loadGreenHouse(){
+    public GreenHouseList loadGreenHouses(){
         GreenHouseList greenHouseList = new GreenHouseList();
         int index = filename.lastIndexOf('.');
         String extension = "";
