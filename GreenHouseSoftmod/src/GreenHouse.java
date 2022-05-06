@@ -65,4 +65,14 @@ public class Greenhouse {
         System.out.println("Volume: " + this.volume);
     }
 
+    @Override
+    public String toString() {
+        String res = ("ghId: " + this.ghId + "\n");
+        res += ("Description: " + this.description + "\n");
+        res += ("Temperature_min: " + this.temperature_min + "\n");
+        res += ("Temperature_opt: " + this.temperature_opt + "\n");
+        res += ("Humidity_min: " + this.humidity_min + "\n");
+        res += ("Volume: " + this.volume + "\n");
+        return res;
+    }
 }
