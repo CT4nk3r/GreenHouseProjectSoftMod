@@ -1,5 +1,7 @@
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.logging.Level;
 
 public class Controller {
     private final Driver driver;
@@ -35,39 +37,50 @@ public class Controller {
     }
 
     public void control(SensorData data, Greenhouse gh) {
-
+        try {
+            Log log = new Log("log_controller.txt");
+            log.logger.setLevel(Level.ALL);
 
         System.out.println(gh.ghId + " Managing Greenhouse...");
+        log.logger.info(gh.ghId + " Managing Greenhouse...");
         if (data.boiler_on)
             System.out.println("Boiler is currently working, sending blank command to the cloud...");
+            log.logger.warning("Boiler is currently working, sending blank command to the cloud...");
         if (data.sprinkler_on)
             System.out.println("Sprinkler is currently working, sending blank command to the cloud...");
+            log.logger.warning("Sprinkler is currently working, sending blank command to the cloud...");
         double sprinklerValue = 0;
         double boilerValue = 0;
         if ((data.temperature_act - gh.temperature_min >= 5) || (data.humidity_act - gh.humidity_min >= 20)) {
             String errorFileName = "log.txt";
             if ((data.temperature_act - gh.temperature_min >= 5)) {
                 System.out.println("Error with the boiler! Logging...");
+                log.logger.info("Error with the boiler! Logging...");
                 try {
                     PrintWriter writer = new PrintWriter(errorFileName);
                     writer.println("BoilerError - " + data.temperature_act + "C° temperature");
+                    log.logger.info("BoilerError - " + data.temperature_act + "C° temperature");
                     writer.flush();
                     writer.close();
                 } catch (FileNotFoundException e) {
                     System.out.println("File not found: " + errorFileName);
+                    log.logger.info("File not found: " + errorFileName);
                 }
 
             }
 
             if (data.humidity_act - gh.humidity_min >= 20) {
                 System.out.println("Error with the sprinkler! Logging...");
+                log.logger.info("Error with the sprinkler! Logging...");
                 try {
                     PrintWriter writer = new PrintWriter(errorFileName);
                     writer.println("SprinklerError - " + data.humidity_act + "% humidity");
+                    log.logger.info("SprinklerError - " + data.humidity_act + "% humidity");
                     writer.flush();
                     writer.close();
                 } catch (FileNotFoundException e) {
                     System.out.println("File not found: " + errorFileName);
+                    log.logger.info("File not found: " + errorFileName);
                 }
             }
         } else {
@@ -80,6 +93,7 @@ public class Controller {
                     double humidityOptPercentage = 0;
                     double humidityPercentage = 0;
                     System.out.println("Calculating...");
+                    log.logger.info("Calculating...");
                     humidityPercentage = (controlHelper((int) Math.round(data.temperature_act)) * (data.humidity_act / 100)); //16.31
                     humidityOptPercentage = (controlHelper(Math.round(gh.temperature_opt)) * 0.6);
                     sprinklerValue = ((humidityOptPercentage - humidityPercentage)) / 0.01;
@@ -89,58 +103,53 @@ public class Controller {
                     sprinklerValue = 0;
                 }
                 System.out.println("Forwarding command...");
+                log.logger.info("Forwarding command...");
                 int cmdStatus = driver.sendCommand(gh, data.token, boilerValue, sprinklerValue);
 
                 switch (cmdStatus) {
-                    case 100: {
+                    case 100 -> {
                         System.out.println("Command was successfully done!");
-
+                        log.logger.severe("Command was successfully done!");
                     }
-                    break;
-
-                    case 101: {
+                    case 101 -> {
                         System.out.println("Wrong calculation!");
+                        log.logger.severe("Wrong calculation!");
                     }
-                    break;
-
-                    case 102: {
+                    case 102 -> {
                         System.out.println("The command was sent to an already working unit!");
+                        log.logger.severe("The command was sent to an already working unit!");
                     }
-                    break;
-
-                    case 103: {
-                        System.out.println("Hibás parancs került kiküldésre a kazánnak!");
+                    case 103 -> {
+                        System.out.println("Wrong command was sent out to the boiler!");
+                        log.logger.severe("Wrong command was sent out to the boiler!");
                     }
-                    break;
-
-                    case 104: {
-                        System.out.println("Hibás parancs került kiküldésre a locsolónak!");
+                    case 104 -> {
+                        System.out.println("Wrong command was sent out to the sprinkler!");
+                        log.logger.severe("Wrong command was sent out to the sprinkler!");
                     }
-                    break;
-
-                    case 105: {
+                    case 105 -> {
                         System.out.println("Invalid token!");
+                        log.logger.severe("Invalid token!");
                     }
-                    break;
-
-                    case 106: {
+                    case 106 -> {
                         System.out.println("The GreenHouse was not found!");
+                        log.logger.severe("The GreenHouse was not found!");
                     }
-                    break;
-
-                    case 107: {
+                    case 107 -> {
                         System.out.println("General message processing error!");
+                        log.logger.severe("General message processing error!");
                     }
-                    break;
-
-                    default: {
+                    default -> {
                         System.out.println("Error, command cannot be completed!");
+                        log.logger.severe("Error, command cannot be completed!");
                     }
-                    break;
                 }
 
             }
         }
         System.out.println();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

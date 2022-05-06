@@ -15,14 +15,6 @@
  "temperature_opt": 31,
  "humidity_min": 65,
  "volume": 1200
- },
- {
- "ghId": "EORIEJS9WD",
- "description": "Moruga Scorpion",
- "temperature_min": 26,
- "temperature_opt": 28,
- "humidity_min": 70,
- "volume": 1200
  }
  ]
 }
