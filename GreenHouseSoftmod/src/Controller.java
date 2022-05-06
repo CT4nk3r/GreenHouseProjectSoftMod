@@ -39,9 +39,9 @@ public class Controller {
 
         System.out.println(gh.ghId + " Managing Greenhouse...");
         if (data.boiler_on)
-            System.out.println("Boiler is currently working, sedning blank command to the cloud...");
+            System.out.println("Boiler is currently working, sending blank command to the cloud...");
         if (data.sprinkler_on)
-            System.out.println("Sprinkler is currently working, sedning blank command to the cloud...");
+            System.out.println("Sprinkler is currently working, sending blank command to the cloud...");
         double sprinklerValue = 0;
         double boilerValue = 0;
         if ((data.temperature_act - gh.temperature_min >= 5) || (data.humidity_act - gh.humidity_min >= 20)) {
