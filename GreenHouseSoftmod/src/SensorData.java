@@ -6,3 +6,4 @@ public class SensorData {
     public boolean boiler_on;
     public boolean sprinkler_on;
 }
+

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<root>
+ <greenhouseList>
+ <ghId>KFI3EW45RD</ghId>
+ <description>Habanero</description>
+ <temperature_min>27</temperature_min>
+ <temperature_opt>30</temperature_opt>
+ <humidity_min>60</humidity_min>
+ <volume>1200</volume>
+ </greenhouseList>
+ <greenhouseList>
+ <ghId>LDIE5695WW</ghId>
+ <description>Carolina Reaper</description>
+ <temperature_min>29</temperature_min>
+ <temperature_opt>31</temperature_opt>
+ <humidity_min>65</humidity_min>
+ <volume>1200</volume>
+ </greenhouseList>
+ <greenhouseList>
+ <ghId>EORIEJS9WD</ghId>
+ <description>Moruga Scorpion</description>
+ <temperature_min>26</temperature_min>
+ <temperature_opt>28</temperature_opt>
+ <humidity_min>70</humidity_min>
+ <volume>1200</volume>
+ </greenhouseList>
+</root>

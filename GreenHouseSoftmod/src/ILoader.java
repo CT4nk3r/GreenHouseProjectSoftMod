@@ -1,3 +1,3 @@
-public interface ILoader {
-    public GreenHouseList loadGreenHouses();
+interface ILoader {
+    GreenHouseList loadGreenHouses();
 }

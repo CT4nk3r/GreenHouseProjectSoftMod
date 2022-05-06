@@ -1,61 +1,82 @@
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.Reader;
-import java.lang.reflect.Type;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-public class Loader implements ILoader{
+public class Loader implements ILoader {
+
     private String filename;
-    public Loader(String _filename){
-        _filename =  filename;
+
+    public Loader(String _filename) {
+        this.filename = _filename;
     }
 
     @Override
-    public GreenHouseList loadGreenHouses(){
-        GreenHouseList greenHouseList = new GreenHouseList();
-        int index = filename.lastIndexOf('.');
+    public GreenHouseList loadGreenHouses() {
+        GreenHouseList ghList = new GreenHouseList();
+        List<Greenhouse> greenhouses = new ArrayList<>();
+        int idx = filename.lastIndexOf('.');
         String extension = "";
-        if (index > 0){
-            extension = filename.substring(index+1);
+        if (idx > 0) {
+            extension = filename.substring(idx + 1);
         }
-        List<GreenHouse> greenHouseListReturn = new ArrayList<>();
-        if(extension.toLowerCase(Locale.ROOT).equals("json")){
-            try {
-                //http://193.6.19.58:8181/greenhouse/{ghId}
-                URL url = new URL("http://193.6.19.58:8181/greenhouse/");
-                HttpURLConnection conn;
-                conn = (HttpURLConnection) url.openConnection();
-                conn.setRequestMethod("GET");
-                conn.setConnectTimeout(5000);
-                conn.setReadTimeout(5000);
-                conn.setInstanceFollowRedirects(false);
-                int status = conn.getResponseCode();
-                BufferedReader bufferedReader = null;
-                if (status > 299) {
-                    //handle the error code, if necessary
-                    bufferedReader = new BufferedReader(new InputStreamReader(conn.getErrorStream()));
-                } else {
-                    GsonBuilder builder = new GsonBuilder();
-                    Gson gson = builder.create();
-                    bufferedReader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-                    greenHouseList = gson.fromJson((Reader) bufferedReader, (Type) GreenHouse.class);
-                }
-                conn.disconnect();
 
-                return greenHouseList;
-            }catch (IOException ex){
-                System.out.println("Error reading file!");
+        if (extension.toLowerCase().equals("xml")) {
+            try {
+                DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+                DocumentBuilder db = dbf.newDocumentBuilder();
+                Document doc = db.parse(new File(filename));
+                doc.getDocumentElement().normalize();
+                NodeList list = doc.getElementsByTagName("greenhouseList");
+                for (int i = 0; i < list.getLength(); i++) {
+                    Node node = list.item(i);
+                    if (node.getNodeType() == Node.ELEMENT_NODE) {
+                        Element elem = (Element) node;
+                        String ghId = elem.getElementsByTagName("ghId").item(0).getTextContent();
+                        String description = elem.getElementsByTagName("description").item(0).getTextContent();
+                        int temperature_min = Integer.parseInt(elem.getElementsByTagName("temperature_min").item(0).getTextContent());
+                        int temperature_opt = Integer.parseInt(elem.getElementsByTagName("temperature_opt").item(0).getTextContent());
+                        int humidity_min = Integer.parseInt(elem.getElementsByTagName("humidity_min").item(0).getTextContent());
+                        int volume = Integer.parseInt(elem.getElementsByTagName("volume").item(0).getTextContent());
+                        Greenhouse newGreenhouse = new Greenhouse();
+                        newGreenhouse.ghId = ghId;
+                        newGreenhouse.description = description;
+                        newGreenhouse.temperature_min = temperature_min;
+                        newGreenhouse.temperature_opt = temperature_opt;
+                        newGreenhouse.humidity_min = humidity_min;
+                        newGreenhouse.volume = volume;
+                        greenhouses.add(newGreenhouse);
+                    }
+                }
+            } catch (Exception ex) {
+                Logger.getLogger(Loader.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else if (extension.toLowerCase().equals("json")) {
+            try {
+                GsonBuilder builder = new GsonBuilder();
+                Gson gson = builder.create();
+                BufferedReader reader = new BufferedReader(new FileReader(filename));
+                ghList = gson.fromJson(reader, GreenHouseList.class);
+                return ghList;
+            } catch (IOException ex) {
+                System.out.println("Error while trying to read file!");
             }
         }
-        greenHouseList.setGreenHouseList(greenHouseListReturn);
-        return greenHouseList;
+        ghList.setGreenhouseList(greenhouses);
+        return ghList;
     }
-}
+}   
+

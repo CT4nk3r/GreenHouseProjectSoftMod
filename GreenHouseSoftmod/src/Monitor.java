@@ -1,15 +1,21 @@
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
 
-public class Monitor implements IMonitor{
+import java.lang.String;
+public class Monitor implements IMonitor 
+{
     @Override
     public SensorData getSensorData(String ghId) {
-        SensorData receivedData = new SensorData();
+       SensorData receivedData = new SensorData();
         try {
             //http://193.6.19.58:8181/greenhouse/{ghId}
             URL url = new URL("http://193.6.19.58:8181/greenhouse/" + ghId);
@@ -19,22 +25,21 @@ public class Monitor implements IMonitor{
             conn.setReadTimeout(5000);
             conn.setInstanceFollowRedirects(false);
             int status = conn.getResponseCode();
-            BufferedReader bufferedReader;
-            bufferedReader = null;
+            BufferedReader streamReader = null;
             if (status > 299) {
-                //handle the error code, if necessary
-                bufferedReader = new BufferedReader(new InputStreamReader(conn.getErrorStream()));
+            streamReader = new BufferedReader(new InputStreamReader(conn.getErrorStream()));
             } else {
-                bufferedReader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+            streamReader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
                 GsonBuilder builder = new GsonBuilder();
                 Gson gson = builder.create();
-                receivedData = gson.fromJson(bufferedReader, SensorData.class);
+                receivedData = gson.fromJson(streamReader, SensorData.class);
+
             }
             conn.disconnect();
+           
         } catch (Exception ex) {
-            System.out.println("URL Error!");
+            System.out.println("URL error!");
         }
-
-        return receivedData;
+       return receivedData;
     }
 }

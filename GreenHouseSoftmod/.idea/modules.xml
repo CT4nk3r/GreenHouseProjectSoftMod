@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/GreenHouseSoftmod.iml" filepath="$PROJECT_DIR$/GreenHouseSoftmod.iml" />
+      <module fileurl="file://$PROJECT_DIR$/GreenHouse.iml" filepath="$PROJECT_DIR$/GreenHouse.iml" />
     </modules>
   </component>
 </project>

@@ -1,7 +1,8 @@
-public class GreenHouse {
+public class Greenhouse {
     public String ghId;
     public String description;
     public int temperature_min;
+
     public int temperature_opt;
     public int humidity_min;
     public int volume;
@@ -10,60 +11,58 @@ public class GreenHouse {
         return ghId;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public int getHumidity_min() {
-        return humidity_min;
-    }
-
-    public int getTemperature_min() {
-        return temperature_min;
-    }
-
-    public int getTemperature_opt() {
-        return temperature_opt;
-    }
-
-    public int getVolume() {
-        return volume;
-    }
-
     public void setGhId(String ghId) {
         this.ghId = ghId;
+    }
+
+    public String getDescription() {
+        return description;
     }
 
     public void setDescription(String description) {
         this.description = description;
     }
 
-    public void setHumidity_min(int humidity_min) {
-        this.humidity_min = humidity_min;
+    public int getTemperature_min() {
+        return temperature_min;
     }
 
     public void setTemperature_min(int temperature_min) {
         this.temperature_min = temperature_min;
     }
 
+    public int getTemperature_opt() {
+        return temperature_opt;
+    }
+
     public void setTemperature_opt(int temperature_opt) {
         this.temperature_opt = temperature_opt;
+    }
+
+    public int getHumidity_min() {
+        return humidity_min;
+    }
+
+    public void setHumidity_min(int humidity_min) {
+        this.humidity_min = humidity_min;
+    }
+
+    public int getVolume() {
+        return volume;
     }
 
     public void setVolume(int volume) {
         this.volume = volume;
     }
 
-    @Override
-    public String toString()
-    {
-        String res = "";
-        res += ("ghId: " + getGhId()+"\n");
-        res += ("description: " + getDescription()+"\n");
-        res += ("temperature_min: " + getTemperature_min()+"\n");
-        res += ("temperature_opt: " + getTemperature_opt()+"\n");
-        res += ("humidity_min: " + getHumidity_min()+"\n");
-        res += ("volume: " + getVolume()+"\n");
-        return res;
+
+    public void print() {
+        System.out.println("ghId: " + this.ghId);
+        System.out.println("Description: " + this.description);
+        System.out.println("Temperature_min: " + this.temperature_min);
+        System.out.println("Temperature_opt: " + this.temperature_opt);
+        System.out.println("Humidity_min: " + this.humidity_min);
+        System.out.println("Volume: " + this.volume);
     }
+
 }

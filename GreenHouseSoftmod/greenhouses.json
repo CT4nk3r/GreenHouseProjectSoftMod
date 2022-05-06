@@ -1,0 +1,28 @@
+{
+ "greenhouseList": [
+ {
+ "ghId": "KFI3EW45RD",
+ "description": "Habanero",
+ "temperature_min": 27,
+ "temperature_opt": 30,
+ "humidity_min": 60,
+ "volume": 1200
+ },
+ {
+ "ghId": "LDIE5695WW",
+ "description": "Carolina Reaper",
+ "temperature_min": 29,
+ "temperature_opt": 31,
+ "humidity_min": 65,
+ "volume": 1200
+ },
+ {
+ "ghId": "EORIEJS9WD",
+ "description": "Moruga Scorpion",
+ "temperature_min": 26,
+ "temperature_opt": 28,
+ "humidity_min": 70,
+ "volume": 1200
+ }
+ ]
+}

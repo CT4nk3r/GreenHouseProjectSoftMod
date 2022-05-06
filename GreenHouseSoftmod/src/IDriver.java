@@ -1,3 +1,3 @@
-public interface IDriver {
-    public int sendCommand(GreenHouse greenhouse, String token, double boilerValue, double sprinklerValue);
+interface IDriver {
+    int sendCommand(Greenhouse gh, String token, double boilerValue, double sprinklerValue);
 }

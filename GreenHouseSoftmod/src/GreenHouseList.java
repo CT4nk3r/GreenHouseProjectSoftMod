@@ -1,13 +1,13 @@
 import java.util.List;
 
 public class GreenHouseList {
-    public List<GreenHouse> greenHouseList;
+    public List<Greenhouse> greenhouseList;
 
-    public List<GreenHouse> getGreenHouseList() {
-        return greenHouseList;
+    public List<Greenhouse> getGreenhouseList() {
+        return greenhouseList;
     }
 
-    public void setGreenHouseList(List<GreenHouse> greenHouseList) {
-        this.greenHouseList = greenHouseList;
+    public void setGreenhouseList(List<Greenhouse> greenhouseList) {
+        this.greenhouseList = greenhouseList;
     }
 }
