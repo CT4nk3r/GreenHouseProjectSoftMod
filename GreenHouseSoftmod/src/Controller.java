@@ -87,7 +87,7 @@ public class Controller {
             if (data.boiler_on || data.sprinkler_on) {
                 boilerValue = 0;
                 sprinklerValue = 0;
-            } else if (!data.boiler_on && !data.sprinkler_on) {
+            } else {
                 if (data.temperature_act < gh.temperature_min) {
                     boilerValue = (gh.temperature_opt - data.temperature_act);
                     double humidityOptPercentage = 0;
